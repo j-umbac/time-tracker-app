@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-const {props: project }= defineProps(['project'])
+const { project }  = defineProps(['project'])
 </script>
 
 <style lang="scss" scoped>
