@@ -62,6 +62,36 @@ const login = async () => {
     }
 };
 
+const signUp = async () => {
+    if (!email.value || !password.value || !userName.value) {
+        errorMsg.value = "Please fill up all the fields to Signup"
+    } else {
+        errorMsg.value = ""
+        const { data: userData, error: signUpErr } = await client.auth.signUp({
+            email: email.value,
+            password: password.value,
+        });
+
+        if (signUpErr) {
+            errorMsg.value = "Something went wrong. Please try again";
+            console.log(error);
+        } else {
+            const { error } = await client.from("users").insert({
+                user_id: userData.user?.id,
+                name: userName.value,
+            });
+
+            if (error) {
+                errorMsg.value = "Cannot Sign Up. Please try again.";
+                console.log(error);
+            } else {
+                retrieveUser()
+            }
+        }
+    }
+};
+
+
 </script>
   
 <style scoped></style>
