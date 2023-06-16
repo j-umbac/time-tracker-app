@@ -49,6 +49,7 @@ const client = useSupabaseClient();
 const { retrieveUser } = useUser()
 const user = useCurrentUser()
 
+// Login with credentials, retrieves logged in user after successfull login
 const login = async () => {
     const { error } = await client.auth.signInWithPassword({
         email: email.value,
@@ -62,6 +63,7 @@ const login = async () => {
     }
 };
 
+// Signup with Name, Pw, and Email, add to public user table and retrieves data to stores
 const signUp = async () => {
     if (!email.value || !password.value || !userName.value) {
         errorMsg.value = "Please fill up all the fields to Signup"
