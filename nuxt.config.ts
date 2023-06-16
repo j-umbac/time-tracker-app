@@ -9,6 +9,7 @@ export default defineNuxtConfig({
       }
     ],
     '@nuxtjs/supabase',
+    'nuxt-icon'
   ],
   css: [
     'primeicons/primeicons.css',
