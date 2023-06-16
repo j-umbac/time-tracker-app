@@ -15,7 +15,6 @@ export function useCurrentUserProjects() {
         } else {
             userProjectList.value = data
             errorMsg.value = null
-            console.log(userProjectList.value)
         }
     }
 
