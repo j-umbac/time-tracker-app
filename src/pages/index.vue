@@ -1,6 +1,7 @@
 <template>
     <div>
-        Hello World
+        <ProjectsCard></ProjectsCard>
+        
     </div>
 </template>
 
