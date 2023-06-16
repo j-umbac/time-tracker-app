@@ -3,16 +3,25 @@
         <Card class="mx-8">
             <template #title>My Projects</template>
             <template #content>
-                Testing
+                <div class="space-y-4">
+                    <div v-for="project in userProjectList" :key="project.projects.id">
+                        <ProjectCard :project="project.projects">
+
+                        </ProjectCard>
+                    </div>
+                </div>
             </template>
         </Card>
     </div>
 </template>
 
 <script setup>
+const { retrieveUserProjects } = useCurrentUserProjects()
+const userProjectList = useUserProjects()
 
+watchEffect(() => {
+    retrieveUserProjects()
+})
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
