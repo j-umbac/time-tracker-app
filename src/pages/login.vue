@@ -4,7 +4,7 @@
             <h1 class="text-h1 font-bold text-on-surface">Keepr</h1>
             <p class="text-h4 text-on-surface">The straightforward project tracker for teams.</p>
         </div>
-        <LoginCard class="h-96 mx-8"></LoginCard>
+        <LoginCard class="mx-8"></LoginCard>
     </div>
 </template>
 
