@@ -1,0 +1,52 @@
+<template>
+    <Card>
+        <template #title>
+            <span class="text-h3">
+                <span v-if="isSignUp">Sign Up</span>
+                <span v-else>Login</span>
+            </span>
+        </template>
+        <template #content>
+            <form @submit.prevent="() => (isSignUp ? signUp() : login())" class="space-y-8">
+                <span class="p-float-label transition" v-if="isSignUp">
+                    <InputText v-model="userName" id="userName" class="w-full" />
+                    <label for="userName">Name</label>
+                </span>
+                <span class="p-float-label">
+                    <InputText v-model="email" id="email" class="w-full" />
+                    <label for="email">Email</label>
+                </span>
+                <span class="p-float-label">
+                    <Password v-model="password" id="password" input-class="w-full" class="w-full" :feedback="isSignUp" />
+                    <label for="password">Password</label>
+                </span>
+                <div class="mt-8">
+                    <Button class="w-full" v-if="isSignUp" label="Sign Up" type="submit" />
+                    <Button class="w-full" v-else label="Login" type="submit" />
+                </div>
+            </form>
+            <div class="mt-4">
+                <Button @click="isSignUp = !isSignUp" text class="w-full text-small" :label="isSignUp
+                    ? 'Have an account? Log in instead'
+                    : 'Create a new account'
+                    " />
+            </div>
+            <div v-if="errorMsg" class="flex justify-center">
+                <span class="text-red-600">{{ errorMsg }}</span>
+            </div>
+        </template>
+    </Card>
+</template>
+  
+<script setup>
+const isSignUp = ref(false);
+const email = ref("");
+const password = ref("");
+const userName = ref("");
+const errorMsg = ref("");
+
+
+</script>
+  
+<style scoped></style>
+  
