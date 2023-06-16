@@ -16,8 +16,6 @@
 
 <script setup>
 const userProjectList = useUserProjects()
-console.log(userProjectList.value)
-
 </script>
 
 <style lang="scss" scoped></style>
