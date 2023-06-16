@@ -6,10 +6,8 @@
 
 <script setup>
 const { retrieveUser } = useUser()
+await retrieveUser()
 
-watchEffect(()=>{
-    retrieveUser()
-})
 </script>
 
 <style lang="scss" scoped></style>
