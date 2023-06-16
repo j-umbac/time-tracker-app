@@ -7,7 +7,8 @@ export default defineNuxtConfig({
       '@nuxtjs/tailwindcss', {
         cssPath: '~/assets/styles/tailwind.css'
       }
-    ]
+    ],
+    '@nuxtjs/supabase',
   ],
   css: [
     'primeicons/primeicons.css',
