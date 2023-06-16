@@ -14,7 +14,6 @@ export function useProject() {
             errorMsg.value = error
         } else {
             project.value = data
-            console.log("Running", project.value)
             errorMsg.value = null
         }
     }
