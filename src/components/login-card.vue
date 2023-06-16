@@ -91,7 +91,11 @@ const signUp = async () => {
     }
 };
 
-
+watchEffect(() => {
+    if (user.value.user_id) {
+        return navigateTo({ name: "index" });
+    }
+});
 </script>
   
 <style scoped></style>
