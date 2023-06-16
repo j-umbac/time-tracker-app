@@ -8,7 +8,7 @@ export function useCurrentUserProjects() {
         const { data, error } = await supabase
             .from("users_projects")
             .select("*, projects(*)")
-            .eq('user_id', 2)
+            .eq('user_id', user.value.id)
         if (error) {
             console.log(error)
             errorMsg.value = error
