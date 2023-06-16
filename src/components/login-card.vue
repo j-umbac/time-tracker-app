@@ -45,6 +45,22 @@ const password = ref("");
 const userName = ref("");
 const errorMsg = ref("");
 
+const client = useSupabaseClient();
+const { retrieveUser } = useUser()
+const user = useCurrentUser()
+
+const login = async () => {
+    const { error } = await client.auth.signInWithPassword({
+        email: email.value,
+        password: password.value,
+    });
+    if (error) {
+        errorMsg.value = "Invalid login credentials. Please try again.";
+        console.log(error);
+    } else {
+        retrieveUser()
+    }
+};
 
 </script>
   
