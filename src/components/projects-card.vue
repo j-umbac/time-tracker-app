@@ -6,7 +6,6 @@
                 <div class="space-y-4">
                     <div v-for="project in userProjectList" :key="project.projects.id">
                         <ProjectCard :project="project.projects">
-
                         </ProjectCard>
                     </div>
                 </div>
@@ -16,12 +15,9 @@
 </template>
 
 <script setup>
-const { retrieveUserProjects } = useCurrentUserProjects()
 const userProjectList = useUserProjects()
+console.log(userProjectList.value)
 
-watchEffect(() => {
-    retrieveUserProjects()
-})
 </script>
 
 <style lang="scss" scoped></style>
