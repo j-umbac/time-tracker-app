@@ -3,7 +3,6 @@
         <ProjectsCard></ProjectsCard>
         <OtherProjects></OtherProjects>
     </div>
-    
 </template>
 
 <script setup>
