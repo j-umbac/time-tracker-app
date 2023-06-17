@@ -16,8 +16,4 @@ await retrieveUser()
     color: var(--primary-color);
     background-color: white;
 }
-
-.p-card {
-    border-radius: 32px;
-}
 </style>
