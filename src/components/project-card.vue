@@ -11,7 +11,11 @@
 
 <script setup>
 const { project } = defineProps(['project'])
+const { retrieveEntries, getHours, workHours, convertDuration } = useProject()
 
+await retrieveEntries(project.id)
+await getHours()
+const formatDuration = ref(convertDuration(workHours.value * 3600))
 
 
 </script>
