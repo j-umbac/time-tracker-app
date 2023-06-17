@@ -32,7 +32,7 @@
                 <div>
                     <p>{{ project.description }}</p>
                     <Divider></Divider>
-                    <div class="flex justify-between sm:justify-start mb-8 sm:space-x-4">
+                    <div class="flex justify-between sm:justify-start mb-8 sm:space-x-4 mt-4">
                         <Button label="Add Task" icon="pi pi-plus" icon-pos="right" size="small" rounded raised
                             @click="navigateTo(`/add/task/${project.id}`)" />
                         <ToggleButton v-model="isWeek" @click="getWeekEntries()" off-label="All" on-label="This Week"

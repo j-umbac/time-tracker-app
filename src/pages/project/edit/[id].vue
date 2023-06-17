@@ -17,8 +17,7 @@
                         <Textarea v-model="project.description" rows="12" class="w-full" />
                         <label>Description</label>
                     </span>
-                    <Divider></Divider>
-                    <div class="flex space-x-4 justify-end">
+                    <div class="flex space-x-4 justify-end mt-4">
                         <Button icon="pi pi-times" label="Cancel" severity="danger" size="small"
                             @click="navigateTo(`/project/${project.id}`)" />
                         <Button icon="pi pi-check" label="Accept" type="submit" size="small" />
