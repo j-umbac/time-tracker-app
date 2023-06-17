@@ -2,6 +2,8 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+Live demo: [Keepr: Project Tracker](https://time-tracker-app-gamma.vercel.app/)
+
 ## Setup
 
 Make sure to install the dependencies:
@@ -16,6 +18,10 @@ pnpm install
 # yarn
 yarn install
 ```
+
+## Important for Supabase connection
+
+Create a `.env` file and copy contents from `.env.example`
 
 ## Development Server
 
