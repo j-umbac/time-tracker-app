@@ -7,6 +7,23 @@
                     <span class="text-h">New Project</span>
                 </div>
             </template>
+            <template #content>
+                <form class="space-y-8 mt-8" @submit.prevent="addNewProj()">
+                    <span class="p-float-label transition">
+                        <InputText v-model="newProject.name" class="w-full" />
+                        <label>Project Name</label>
+                    </span>
+                    <small v-if="err" class="text-red-500">{{ err }}</small>
+                    <span class="p-float-label">
+                        <Textarea v-model="newProject.description" rows="12" class="w-full" />
+                        <label>Description</label>
+                    </span>
+                    <Divider></Divider>
+                    <div class="flex space-x-4 justify-end">
+                        <Button icon="pi pi-plus" label="Create" type="submit" size="small" />
+                    </div>
+                </form>
+            </template>
         </Card>
     </div>
 </template>
