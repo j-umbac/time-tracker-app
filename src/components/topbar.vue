@@ -6,12 +6,29 @@
             </NuxtLink>
         </h2>
         <div class="mr-8 md:mr-0">
-            <Button icon="pi pi-sign-out" severity="info" text rounded raised />
+            <ConfirmDialog></ConfirmDialog>
+            <Button icon="pi pi-sign-out" severity="info" text rounded raised v-tooltip="'Sign Out'" @click="signOut()"/>
         </div>
     </div>
 </template>
 
 <script setup>
+import { useConfirm } from "primevue/useconfirm"
+
+const confirm = useConfirm()
+const { signoutUser } = useUser()
+
+const signOut = () => {
+    confirm.require({
+        message: 'Are you sure you want to proceed?',
+        header: 'Sign Out',
+        icon: 'pi pi-sign-out',
+        position: 'bottom',
+        accept: () => {
+            signoutUser()
+        }
+    })
+}
 
 </script>
 
