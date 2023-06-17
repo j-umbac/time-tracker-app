@@ -1,6 +1,10 @@
 <template>
     <div>
-        Top Bar
+        <h2>
+            <NuxtLink to="/">
+                Keepr
+            </NuxtLink>
+        </h2>
     </div>
 </template>
 
@@ -8,6 +12,4 @@
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
