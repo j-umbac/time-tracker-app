@@ -38,6 +38,7 @@
 const id = useRoute().params
 const { retrieveProject, project } = useProject()
 const { retrieveUser } = useUser()
+const { retrieveProjects, getOtherProjects } = useCurrentProjects()
 await retrieveUser()
 await retrieveProject(id.id)
 const user = useCurrentUser()
@@ -65,6 +66,8 @@ const addTask = async () => {
         } else {
             console.log("Task added")
             await retrieveProject(id.id)
+            await getOtherProjects()
+            await retrieveProjects()
             navigateTo(`/project/${project.value.id}`)
         }
     }
