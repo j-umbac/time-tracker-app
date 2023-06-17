@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-[100dvh] h-full bg-gradient-to-br from-teal-100 to-green-100">
-        <div class="border-b bg-surface-card">
-            <Topbar class="container mx-auto" />
+        <div class="border-b bg-surface-card  drop-shadow">
+            <Topbar class="container mx-auto lg:max-w-5xl" />
         </div>
         <main>
             <div class="container mx-auto grid grid-cols-12">
