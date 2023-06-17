@@ -1,7 +1,9 @@
 <template>
     <div class="space-y-8 my-8">
         <ProjectsCard></ProjectsCard>
+        <OtherProjects></OtherProjects>
     </div>
+    
 </template>
 
 <script setup>
@@ -10,4 +12,6 @@ await retrieveUser()
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+
+</style>
