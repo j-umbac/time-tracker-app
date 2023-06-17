@@ -5,6 +5,7 @@ import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Timeline from 'primevue/timeline'
 import Divider from 'primevue/divider'
+import Textarea from 'primevue/textarea'
 
 //Auto-import Primevue components to project
 export default defineNuxtPlugin((nuxtApp) => {
@@ -15,5 +16,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Password', Password);
     nuxtApp.vueApp.component('Timeline', Timeline);
     nuxtApp.vueApp.component('Divider', Divider);
+    nuxtApp.vueApp.component('Textarea', Textarea);
 
 });
