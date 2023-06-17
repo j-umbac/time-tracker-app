@@ -1,13 +1,11 @@
 <template>
-    <div>
-        Page Footer
+    <div class="h-36 flex flex-col items-center justify-center space-y-1 font-semibold">
+        <p class="text-on-surface text-[12px]">
+            Created by: Joshua Rhey Umbac
+        </p>
+        <p class="text-on-surface text-[12px]">
+            for Countable Web Productions | Junior Developer's Techincal Exam
+        </p>
+        <p class="text-on-surface text-[12px]">Source: <a class=" underline" href="https://github.com/j-umbac/time-tracker-app">Keepr: Projects Tracker</a></p>
     </div>
 </template>
-
-<script setup>
-
-</script>
-
-<style lang="scss" scoped>
-
-</style>
