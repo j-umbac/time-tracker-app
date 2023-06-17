@@ -18,8 +18,31 @@ export function useCurrentUserProjects() {
         }
     }
 
+    async function addProject(project) {
+        const { data, error } = await supabase
+            .from('projects')
+            .insert({
+                name: project.name,
+                description: project.description
+            }).select().single()
+        if (error) {
+            console.log(error)
+        } else {
+            const { error } =  await supabase
+                .from('users_projects')
+                .insert({
+                    user_id: user.value.id,
+                    project_id: data.id
+                })
+            if (error) {
+                console.log(error)
+            }
+        }
+    }
+
     return {
         errorMsg,
-        retrieveUserProjects
+        retrieveUserProjects,
+        addProject
     }
 }
