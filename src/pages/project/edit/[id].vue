@@ -8,7 +8,7 @@
                 </div>
             </template>
             <template #content>
-                <form class="space-y-8 mt-8" @submit.prevent="">
+                <form class="space-y-8 mt-8" @submit.prevent="handleEdit()">
                     <span class="p-float-label transition">
                         <InputText v-model="project.name" class="w-full" />
                         <label>Project Name</label>
@@ -37,7 +37,21 @@ const { retrieveProject, project } = useProject()
 
 await retrieveProject(id.id)
 
-
+const handleEdit = async () => {
+    const { error } = await supabase
+        .from('projects')
+        .update({
+            name: project.value.name,
+            description: project.value.description,
+        })
+        .eq('id', project.value.id)
+    if (error) {
+        console.log(error)
+    } else {
+        console.log("Project successfully edited")
+        navigateTo(`/project/${project.value.id}`)
+    }
+}
 
 </script>
 
