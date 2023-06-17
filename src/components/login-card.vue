@@ -7,7 +7,7 @@
             </span>
         </template>
         <template #content>
-            <form @submit.prevent="() => (isSignUp ? signUp() : login())" class="space-y-8">
+            <form @submit.prevent="() => (isSignUp ? signUp() : login())" class="space-y-8 mt-8">
                 <span class="p-float-label transition" v-if="isSignUp">
                     <InputText v-model="userName" id="userName" class="w-full" />
                     <label for="userName">Name</label>
