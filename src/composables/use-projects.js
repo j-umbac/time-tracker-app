@@ -43,12 +43,9 @@ export function useCurrentProjects() {
     function getDifference(array1, array2) {
         let diff = [];
 
-        // Iterate over the first array
         for (const item1 of array1) {
-            // Find matching items in the second array
             const found = array2.some(item2 => item1.id === item2.project_id);
 
-            // If no match is found, add the item to the diff array
             if (!found) {
                 diff.push(item1);
             }
@@ -58,7 +55,6 @@ export function useCurrentProjects() {
 
     async function getOtherProjects() {
         getDifference(projectList.value, userProjectList.value)
-        // console.log("Other Proj", otherProjects.value)
     }
 
     return {
