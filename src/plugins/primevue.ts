@@ -7,6 +7,7 @@ import Timeline from 'primevue/timeline'
 import Divider from 'primevue/divider'
 import Textarea from 'primevue/textarea'
 import InputNumber from 'primevue/inputnumber'
+import Tag from 'primevue/tag'
 
 //Auto-import Primevue components to project
 export default defineNuxtPlugin((nuxtApp) => {
@@ -19,5 +20,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Divider', Divider);
     nuxtApp.vueApp.component('Textarea', Textarea);
     nuxtApp.vueApp.component('InputNumber', InputNumber);
+    nuxtApp.vueApp.component('Tag', Tag);
 
 });
