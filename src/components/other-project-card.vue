@@ -21,7 +21,7 @@
                     <span v-if="formatDuration.seconds">
                         {{ formatDuration.seconds }}s
                     </span>
-                    <span v-else>
+                    <span v-else-if="isEmpty">
                         <small>No logged hours yet</small>
                     </span>
                 </span>
@@ -44,6 +44,7 @@ const { addToProjectList } = useCurrentProjects()
 await retrieveEntries(project.id)
 await getHours()
 const formatDuration = ref(convertDuration(workHours.value * 3600))
+const isEmpty = Object.values(formatDuration.value).every(x => x === null || x === 0);
 
 const addProject = async (id) =>{
     await addToProjectList(id)
