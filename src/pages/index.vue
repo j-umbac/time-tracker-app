@@ -13,5 +13,12 @@ await retrieveUser()
 </script>
 
 <style lang="scss">
+.p-button.p-button-text.p-button-plain {
+    color: var(--primary-color);
+    background-color: white;
+}
 
+.p-card {
+    border-radius: 32px;
+}
 </style>
