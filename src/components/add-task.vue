@@ -10,7 +10,26 @@
             <template #subtitle>
                 {{ project.name }}
             </template>
-           
+            <template #content>
+                <form class="space-y-8 mt-8" @submit.prevent="addTask()">
+                    <span class="p-float-label">
+                        <InputNumber v-model="newTask.hours_worked" class="w-full" suffix=" hrs" :minFractionDigits="2"
+                            :step="0.02" show-buttons />
+                        <label>Hours Worked</label>
+                    </span>
+                    <small>Input only hours in decimal form</small>
+                    <span class="p-float-label transition">
+                        <Textarea v-model="newTask.description" class="w-full" rows="5" />
+                        <label>Task Description</label>
+                    </span>
+                    <Divider></Divider>
+                    <div class="flex space-x-4 justify-end">
+                        <Button icon="pi pi-times" label="Cancel" severity="danger" size="small"
+                            @click="navigateTo(`/project/${project.id}`)" />
+                        <Button icon="pi pi-check" label="Accept" type="submit" size="small" />
+                    </div>
+                </form>
+            </template>
         </Card>
     </div>
 </template>
