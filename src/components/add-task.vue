@@ -50,7 +50,25 @@ const newTask = ref({
     user_id: user.value.id
 })
 
-
+const addTask = async () => {
+    if (newTask.value.description && newTask.value.hours_worked) {
+        const { error } = await supabase
+            .from("project_entry")
+            .insert({
+                project_id: newTask.value.project_id,
+                user_id: newTask.value.user_id,
+                description: newTask.value.description,
+                hours_worked: newTask.value.hours_worked
+            })
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("Task added")
+            await retrieveProject(id.id)
+            navigateTo(`/project/${project.value.id}`)
+        }
+    }
+}
 
 
 </script>
