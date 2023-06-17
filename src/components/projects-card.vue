@@ -1,12 +1,21 @@
 <template>
     <div>
         <Card class="mx-8">
-            <template #title>My Projects</template>
+            <template #title>
+                <span class="text-h3">
+                    My Projects
+                </span>
+            </template>
             <template #content>
                 <div class="space-y-4">
-                    <div v-for="project in userProjectList" :key="project.projects.id">
-                        <ProjectCard :project="project.projects">
-                        </ProjectCard>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <div class="h-full" v-for="project in userProjectList" :key="project.projects.id">
+                            <ProjectCard :project="project.projects">
+                            </ProjectCard>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <Button icon="pi pi-plus" rounded raised @click="navigateTo({name: 'add-project'})"></Button>
                     </div>
                 </div>
             </template>
@@ -15,6 +24,8 @@
 </template>
 
 <script setup>
+const { retrieveUserProjects } = useCurrentUserProjects()
+await retrieveUserProjects()
 const userProjectList = useUserProjects()
 </script>
 
