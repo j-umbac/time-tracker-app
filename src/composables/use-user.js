@@ -1,11 +1,12 @@
 export function useUser() {
-    const supabase = useSupabaseClient();
-    const user = useCurrentUser();
-    const errorMsg = ref();
+    const supabase = useSupabaseClient()
+    const user = useCurrentUser()
+    const errorMsg = ref()
+    const client = useSupabaseClient()
     const { retrieveUserProjects } = useCurrentUserProjects()
 
     async function retrieveUser() {
-        const { data: userId } = await supabase.auth.getUser();
+        const { data: userId } = await supabase.auth.getUser()
         const { data, error } = await supabase
             .from("users")
             .select("id, user_id, name")
@@ -21,8 +22,19 @@ export function useUser() {
         }
     }
 
+    async function signoutUser() {
+        const { error } = await client.auth.signOut()
+        if (!error) {
+            navigateTo({ name: 'login' })
+        }
+        else {
+            console.log(error)
+        }
+    }
+
     return {
         errorMsg,
-        retrieveUser
+        retrieveUser,
+        signoutUser,
     }
 }
