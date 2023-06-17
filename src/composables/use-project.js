@@ -24,6 +24,7 @@ export function useProject() {
         const { data, error } = await supabase
             .from("project_entry")
             .select("*, users(name)")
+            .order('date', { ascending: false })
             .eq("project_id", id)
         if (error) {
             console.log(error)
@@ -42,6 +43,7 @@ export function useProject() {
         const { data, error } = await supabase
             .from("project_entry")
             .select("*, users(name)")
+            .order('date', { ascending: false })
             .lt('date', dateTo.toISOString())
             .gt('date', dateFrom.toISOString())
             .eq("project_id", id)
