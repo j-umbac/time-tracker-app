@@ -4,6 +4,7 @@ export function useCurrentUserProjects() {
     const user = useCurrentUser()
     const errorMsg = ref()
 
+    //Fetch projects where current user is part of
     async function retrieveUserProjects() {
         const { data, error } = await supabase
             .from("users_projects")
@@ -18,6 +19,7 @@ export function useCurrentUserProjects() {
         }
     }
 
+    //Add new project and make current user part of the project
     async function addProject(project) {
         const { data, error } = await supabase
             .from('projects')

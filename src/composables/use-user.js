@@ -5,6 +5,7 @@ export function useUser() {
     const client = useSupabaseClient()
     const { retrieveUserProjects } = useCurrentUserProjects()
 
+    //Fetches current user
     async function retrieveUser() {
         const { data: userId } = await supabase.auth.getUser()
         const { data, error } = await supabase
@@ -22,6 +23,7 @@ export function useUser() {
         }
     }
 
+    //Signs out user
     async function signoutUser() {
         const { error } = await client.auth.signOut()
         if (!error) {

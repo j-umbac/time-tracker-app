@@ -25,6 +25,8 @@
 
 <script setup>
 const { retrieveUserProjects } = useCurrentUserProjects()
+
+//Fetch User Projects
 await retrieveUserProjects()
 const userProjectList = useUserProjects()
 </script>

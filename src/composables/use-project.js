@@ -5,6 +5,7 @@ export function useProject() {
     const entries = ref()
     const workHours = ref(0)
 
+    //Retrieve single project by id
     async function retrieveProject(id) {
         const { data, error } = await supabase
             .from("projects")
@@ -20,6 +21,7 @@ export function useProject() {
         }
     }
 
+    //Retrieve entries of a project by id
     async function retrieveEntries(id) {
         const { data, error } = await supabase
             .from("project_entry")
@@ -35,6 +37,7 @@ export function useProject() {
         }
     }
 
+    //Retrieves a filtered list of entries (entries this week) of a project by id
     async function retrieveWeekEntries(id) {
         const dateTo = new Date()
         const dateFrom = new Date()
@@ -56,6 +59,7 @@ export function useProject() {
         }
     }
 
+    //Compute  total hours for each project
     async function getHours() {
         workHours.value=0
         if (entries.value.length) {
@@ -65,6 +69,7 @@ export function useProject() {
         }
     }
 
+    //Compute and convert total work hours to DD:HH:MM:SS object
     function convertDuration(duration) {
         var days = Math.floor(duration / (24 * 60 * 60));
         var hours = Math.floor((duration % (24 * 60 * 60)) / (60 * 60));
@@ -79,6 +84,7 @@ export function useProject() {
         };
     }
 
+    //Formats the date given to readable string
     function formatDateTime(dateTime) {
         let date = new Date(dateTime)
         return date.toLocaleString('en-US', {

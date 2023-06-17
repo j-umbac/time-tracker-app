@@ -7,6 +7,7 @@ export function useCurrentProjects() {
     const otherProjects = useOtherProjects()
     const { retrieveUserProjects } = useCurrentUserProjects()
 
+    //Retrieves all projects
     async function retrieveProjects() {
         const { data, error } = await supabase
             .from("projects")
@@ -21,6 +22,7 @@ export function useCurrentProjects() {
         }
     }
 
+    //Adds project where user is not a part of, to their project list. Transfer from 'Other Projects' to 'My Projects'
     async function addToProjectList(id) {
         console.log("User Proj before", userProjectList.value)
         const { error } = await supabase
@@ -40,6 +42,7 @@ export function useCurrentProjects() {
         }
     }
 
+    //Computes the difference of 'My Project' and 'All Projects' array of objects and puts the difference into the 'Other Projects' list
     function getDifference(array1, array2) {
         let diff = [];
 

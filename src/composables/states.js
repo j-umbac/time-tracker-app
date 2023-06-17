@@ -4,5 +4,5 @@ export const useCurrentUser = () => useState('user', () => ({}))
 export const useUserProjects = () => useState('userProjectList', () => ([]))
 //Global state for projects
 export const useProjects = () => useState('projectList', () => ([]))
-
+//Global state for projects not joined by current user
 export const useOtherProjects = () => useState('otherProjects', () => ([]))

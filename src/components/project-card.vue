@@ -38,6 +38,7 @@
 const { project } = defineProps(['project'])
 const { retrieveEntries, getHours, workHours, convertDuration } = useProject()
 
+// Retrieves entries and hours worked on, formates the data and evaluates if empty for templat rendering
 await retrieveEntries(project.id)
 await getHours()
 const formatDuration = ref(convertDuration(workHours.value * 3600))

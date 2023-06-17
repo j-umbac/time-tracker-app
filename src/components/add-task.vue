@@ -51,6 +51,7 @@ const newTask = ref({
     user_id: user.value.id
 })
 
+// Add task to server TODO: transfer to composable
 const addTask = async () => {
     if (newTask.value.description && newTask.value.hours_worked) {
         const { error } = await supabase

@@ -22,6 +22,7 @@
 const { retrieveProjects, getOtherProjects } = useCurrentProjects()
 const otherProjects = useOtherProjects()
 
+//Fetch list of projects - User Projects and Other Projects not joined
 await retrieveProjects()
 await getOtherProjects()
 
