@@ -21,6 +21,15 @@ const { retrieveProject, project } = useProject()
 const { retrieveUser } = useUser()
 await retrieveUser()
 await retrieveProject(id.id)
+const user = useCurrentUser()
+const supabase = useSupabaseClient()
+
+const newTask = ref({
+    project_id: project.value.id,
+    description: '',
+    hours_worked: null,
+    user_id: user.value.id
+})
 
 
 
