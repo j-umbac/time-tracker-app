@@ -1,5 +1,5 @@
 <template>
-    <div class="flex h-[70px] justify-between py-8 items-center mx-4 sm:mx-auto">
+    <div class="flex h-[70px] justify-between py-8 items-center mx-auto">
         <h2 class="text-h2 font-bold sm:block">
             <NuxtLink to="/">
                 Keepr
