@@ -7,7 +7,7 @@
                 </span>
             </template>
             <template #content>
-                <div class="space-y-4">
+                <div class="space-y-4 mt-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                         <div class="h-full" v-for="project in userProjectList" :key="project.projects.id">
                             <ProjectCard :project="project.projects">
