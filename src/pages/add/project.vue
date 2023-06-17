@@ -36,6 +36,16 @@ const newProject = ref({
     decription: ''
 })
 
+const addNewProj = () => {
+    if (newProject.value.name) {
+        err.value = null
+        addProject(newProject.value)
+        navigateTo({name: 'index'})
+    } else {
+        err.value = "Project Name is required."
+    }
+    
+}
 </script>
 
 <style lang="scss" scoped>
