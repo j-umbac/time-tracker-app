@@ -12,7 +12,7 @@
             </template>
             <template #subtitle>
                 <div>
-                    <p class="font-semibold">Total:
+                    <p class="font-semibold">Total <span v-if="isWeek">this Week</span>:
                         <span v-if="formatDuration.days">
                             {{ formatDuration.days }}d
                         </span>
@@ -32,9 +32,11 @@
                 <div>
                     <p>{{ project.description }}</p>
                     <Divider></Divider>
-                    <div class="flex justify-center sm:justify-start mb-8">
+                    <div class="flex justify-between sm:justify-start mb-8 sm:space-x-4">
                         <Button label="Add Task" icon="pi pi-plus" icon-pos="right" size="small" rounded raised
                             @click="navigateTo(`/add/task/${project.id}`)" />
+                        <ToggleButton v-model="isWeek" @click="getWeekEntries()" off-label="All" on-label="This Week"
+                            class="p-button-raised p-button-rounded p-buttom-sm"></ToggleButton>
                     </div>
                     <div class="max-w-lg sm:mx-0 mx-auto">
                         <Timeline :value="entries">
@@ -71,22 +73,25 @@
 
 <script setup>
 const id = useRoute().params
-const { retrieveProject, project, retrieveEntries, getHours, workHours, convertDuration, entries, formatDateTime } = useProject()
-
+const { retrieveProject, project, retrieveEntries, getHours, workHours, convertDuration, entries, formatDateTime, retrieveWeekEntries } = useProject()
 await retrieveProject(id.id)
 await retrieveEntries(id.id)
 await getHours()
-entries.value.reverse()
 
 const formatDuration = ref(convertDuration(workHours.value * 3600))
+const isWeek = ref(false)
 
-// const supabase = use
-// const nameEntries = ref()
-
-// for (let i = 0; i<entries.value.length; i++) {
-
-//     // console.log(entries.value[i].user_id)
-// }
+const getWeekEntries = async () => {
+    if (isWeek.value) {
+        await retrieveWeekEntries(id.id)
+        await getHours()
+        formatDuration.value = convertDuration(workHours.value * 3600)
+    } else {
+        await retrieveEntries(id.id)
+        await getHours()
+        formatDuration.value = convertDuration(workHours.value * 3600)
+    }
+}
 
 </script>
 
