@@ -14,7 +14,7 @@
                 <form class="space-y-8 mt-8" @submit.prevent="addTask()">
                     <span class="p-float-label">
                         <InputNumber v-model="newTask.hours_worked" class="w-full" suffix=" hrs" :minFractionDigits="2"
-                            :step="0.02" show-buttons />
+                            :step="0.02" show-buttons :min="0" />
                         <label>Hours Worked</label>
                     </span>
                     <small>Input only hours in decimal form</small>
@@ -53,7 +53,7 @@ const newTask = ref({
 
 // Add task to server TODO: transfer to composable
 const addTask = async () => {
-    if (newTask.value.description && newTask.value.hours_worked) {
+    if (newTask.value.description && newTask.value.hours_worked && newTask.value.hours_worked >= 0) {
         const { error } = await supabase
             .from("project_entry")
             .insert({
